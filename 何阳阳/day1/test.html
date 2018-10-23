@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* span{
+            width: 200px;
+            height: 200px;
+            display: block;
+        } */
+        /* div.box{
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            border: 10px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+        } */
+        /* .cc{
+            width: 500px;
+            height: 100px;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            text-align: center;
+            line-height: 100px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <span>石家庄职业技术学院</span>
+    <img src="####">
+    <span>前端培优班</span> -->
+    <!-- <div class="box">石家庄职业技术学院</div> -->
+    <!-- <div class="cc">前端培优班</div> -->
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+</body>
+</html>
+<script>
+/*常见的行内元素:
+span a em i strong
+常见的块状元素
+div h系列 ul li p*/
+    // var a = b = c = d = 12;
+    // console.log(a == d)
+    // d = 1;
+    // console.log(a,b,c,d);//12 12 12 1
+
+    // var x=y=z=[1,2,3,4];//数组属于引用数据类型
+    // console.log(x==y);//true
+    // z[4]=5;
+    // console.log(z);//1,2,3,4,5
+    // console.log(x,y);//1,2,3,4,5  1,2,3,4,5
+
+    // z=[10,20,30];
+    // z[3]=40;
+    // console.log(x,y,z);//1,2,3,4,5  1,2,3,4,5  10,20,30,40
+
+    // var str='123.9';
+    // //空字符串或字符串只有空格，那么number结果都为0
+    // console.log(Number(str));//0
+    // //只要第一个字符是非数字，那么结果就是NaN,查找到非数字时结束
+    // console.log(parseInt(str));//NaN(not a number)
+
+    // function sum(x,y,z){
+    //     console.log(arguments);//实参集合(实际参数的集合)
+    //     var he = 0;//存储计算出来的和
+    //     for(i=0;i<arguments.length;i++){
+    //         he=he+arguments[i];
+    //     }
+    //     return he;
+    // }
+    // var a = sum(1,2,3,4,5);
+    // console.log(a);
+
+    // var n=4%5;
+    // //n大于等于2并且n小于等于3
+    // if(n>=2 && n<=3){
+    //     console.log(2);
+    // }
+    // //n大于等于2或者n小于等于3
+    // if(n>=2 || n<=3){
+    //     console.log('any number');
+    // }
+    // //布尔数据类型中有5个是false，其他全是true；Boolean()把其他数据类型转换成布尔类型
+    // //0,NaN,'',null,undefined
+    // //对于&&来说前边成立给后边，前边不成立给前边
+    // //对于||来说前边成立给前边，前边不成立给后边
+    // var a = 0 || 2;//2
+    // var b = 0 && 2;//0
+    // console.log(a,b);
+    // //==相对比较会把两边数据类型转成同一种再去比较
+    // //===绝对比较先看两边是不是同一个数据类型，若不是，则直接就是false，若是，则再去比较值是否相等
+    // console.log('0'==0);//true 把两边都转成数字再比较
+    // console.log([]==false);//true 把引用数据类型转成字符串，字符串再转成数字，再去比较
+    // //!代表取反，要先把取反的数据类型转化成布尔类型，然后再去取反
+    // //!!代表取反再取反，这个操作的效果等同于Boolean()转化
+    // console.log(![]==false);//ture
+
+    // var name='和洋洋',age=9;//var name='和洋洋'; var age= 9;
+    // console.log('我的名字是'+name+'我的年龄是'+age);
+    // //es6的字符串模板
+    // var str=`我的姓名是${name}我的年龄是${age}`;
+    // console.log(str);
+    // var str2='124\'sdf';//若想用单引号包含单引号，我们需要用\把字符串中的单引号转义
+
+    // //number类型
+    // //Number(),parseInt(),parseFloat()
+    // console.log(NaN==NaN);//false 结果永远不相等
+
+    // console.log(isNaN(1/'a'));//true 判断参数是否是NaN,是返回true，不是返回false
+    // console.log(null==undefined);//true
+    // console.log(null===undefined);//false
+    // console.log(typeof(1));//number 查看数据类型用的
+
+    // //对象中获取属性值的方式，一种是打点，另一种是[]，中括号的这种方式属性值是通过变量获取的情况
+
+    // for(var i=0;i<10;i++){
+    //     switch(i%4){
+    //         case 1:
+    //         case 3:
+    //         i+=1;
+    //         break;
+    //         case 0:
+    //         case 2:
+    //         i+=2;
+    //         break;
+    //         default:
+    //         i+=4;
+    //     }
+    // }
+    // console.log(i);//11
+
+   
+        // var btn = document.getElementsByTagName('button');
+        // for(var i=0;i<btn.length;i++){
+        //     btn[i].onclick = function () {
+        //         alert(this.innerHTML);
+        //     }
+        // }
+        //事件的循环绑定
+        var btn = document.getElementsByTagName('button');
+        for(let i=0;i<btn.length;i++){
+            btn[i].onclick = function () {
+                alert(i+1);
+            }
+        }
+
+    </script>
