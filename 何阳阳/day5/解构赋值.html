@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let ary = [1, 2, 3, 4, 5, 6];
+    /*
+    数组的解构赋值
+    前边数组放变量，后边数组放值
+    赋值结果 按照对应位置去赋值
+    */
+    let [a1, a2, a3, , , a4] = ary;
+
+    //不添加变量的情况下，互换x,y的值：
+    let x = 12;
+    let y = 13;
+    x = x + y;//x变成了两者之和
+    y = x - y;// y 变成 两者之和 减去 y --> 也就是把x之前的值赋给y
+    x = x - y;// x 变成 两者之和 减去 y --> 就是把 y之前的值赋给x
+    console.log(x, y);
+    [y, x] = [x, y];//[y,x]=[12,13]
+    console.log(x, y);
+
+    /*
+    对象的解构赋值
+    按照名称，进行解构赋值的
+    */
+    let obj = { name: 'zf', age: 9 };
+    let { name, age, sex } = obj;
+    /* 
+    let name = obj.name;
+    let age = obj.age;
+    let sex = obj.sex;
+    */
+
+    /*
+    扩展运算符
+    */
+    let arr1=[1,2,3];
+    let arr2=[...arr1,...arr1,4,5,6];
+    let arr3=[arr1,arr1,4,5,6];
+    console.log(arr2);//[1, 2, 3, 1, 2, 3, 4, 5, 6]
+    console.log(arr3);// [Array(3), Array(3), 4, 5, 6]
+
+    let obj1={naem:'zf',age:9};
+    let obj2={...obj1,sex:1,name2:12};
+    let obj3={...obj1};
+    let obj4=obj1;
+    console.log(obj2);//{naem: "zf", age: 9, sex: 1, name2: 12}
+    console.log(obj3);//{naem: "zf", age: 9}
+    console.log(obj4);//{naem: "zf", age: 9}
+</script>

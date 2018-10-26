@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var obj = {name:'hyy',age:9};
+        // for(var k in obj){
+        //     console.log(k);
+        //     console.log(obj[k]);
+        // }
+        
+        // var ary = [1,2,3,4];
+        // ary.push(1,4,5,2);//给数组的末尾添加项
+        // // var item = ary.pop();//删除数组的最后一项
+        // // console.log(ary);
+        // var n = ary.unshift(100,999);//给数组首部增加项
+        // console.log(n);
+        // // ary.shift();//删除数组的首位
+
+
+        // ary = [65,34,688,456,8908];
+        // var ary3=ary.sort(function (a,b) {
+        // return a -b;
+        // //返回值a - b 就是一个升序
+        // // 返回 b-a 就是一个降序
+        // })//sort返回结果是排好序之后的数组
+        // console.log(ary3 === ary)//true
+
+
+        // var n =ary.push(1,{},{},{},9,8);//给数组的末尾添加项
+        // console.log(n,ary);//n是返回值时改编后的数组长度
+        // // function fn(){
+        //     return;//return有两个作用，一是打断函数的执行，另一个返回结果给外界，不写return时默认underfined
+        //     console.log('111');
+        // }
+        // var f = fn();
+        // console.log(f);
+
+        //reverse翻转
+        // console.log(ary.reverse());//数组的反转，返回结果跟原数组是一个地址
+
+        //forEach是用来循环数组的
+        // ary=[10,20,30,40];
+        // var aa = ary.forEach(function(item,index){
+        //     //item数组的每一项，index数组当前项的索引
+        //     return 123;
+        // })
+        // console.log(aa);//undefined
+
+
+        //过滤
+        // ary=[10,20,30,40];
+        // var ary2 = ary.filter(function(item,index){
+        //     return false;//return的值是true时，会把当前的item放入新的数组
+        // })
+        // console.log(ary2);
+        
+        // ary=[10,20,30,40];
+        // console.log(ary.join('+'));//join让数组的每一项以指定字符拼接，返回的结果是个字符串
+
+        // var str = '1+2+3+4+5+6+7';
+        // console.log(str.split('+'));//把字符串以指定字符拆分成数组
+
+        //数组求和
+        // var ary =[23,10,20,30];
+        // var t = 0;
+        // // for(var i=0;i<ary.length;i++){
+        // //     t+=ary[i];
+        // // }
+        // ary.forEach(function(item){
+        //     t+=item;
+        // })
+        // console.log(t);
+        
+        //eval()把字符串转换成JS表达式然后进行运算
+        // var str =[1+2+3];
+        // console.log(eval(str));//6
+
+        // var ary = [23,10,20,30];
+        // console.log(eval(ary.join('+')));
+
+        //查出字符串中重复次数最多的字符，并求出重复次数
+        var str = 'sgdsfdsfdfdddddddddddddd';
+        var obj ={};
+        for(var i=0;i<str.length;i++){
+            if(obj[str[i]]){
+                //若对象中存在该项，则证明之前已经给该项赋过值了；直接进行 ++ 的操作即可
+                obj[str[i]]++;
+            }else{
+                obj[str[i]]=1;
+            }
+        }
+        console.log(obj);
+        
+        var max=0;//假设最大次数是0次
+        for(var k in obj){
+            if(obj[k]>max){
+                max = obj[k];
+                maxstr=k;
+            }
+        }
+        console.log(maxstr,max);
+    </script>
+</body>
+</html>
