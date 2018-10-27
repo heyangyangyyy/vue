@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /*面向对象 它是一种以对象数据类型为导向的编程思想
+        类              实例
+      array 所以得数组都是array这个类的实例
+    实例的__proto__属性
+    是指向 类的 prototype属性的
+    我们把array.prototype称为数组类的原型对象
+    每个数组的__proto__都是指向所属类的原型对象
+    原型链： 它是一种属性的查找机制；
+    先再自身上查找某属性；若没有，则取所属类的原型上查找；
+    再没有；向上级类的原型上查找；一直查到基类的原型上；
+
+
+    */
+    //js中的常见内置类：Arrey Object Number String Boolean
+    [].__proto__ === Array.prototype//true
+    var n = 1;
+    Number.prototype === n.__proto__//true
+
+    // [].__proto__.push = function() {
+    //     console.log('this is my push ')
+    // }
+
+    // let ary4 = [];
+    // ary4.push(1, 2, 3);
+    // console.log(ary4);
+    //查看数据类型的另一种方式
+    // Object.prototype.toString.call(12);
+    // ({}).toString.call(12);
+
+    //自定义一个类
+    function Person() {
+        this.a = 12;
+        this.b = 13;
+        // this.sum = function (a,b) {
+        //     return a - b;
+        // }
+    }
+    Person.prototype.sum = function (a,b) {
+        console.log(a + b);
+        return this;
+    }
+    Person.prototype.sum2 = function (a,b) {
+        console.log((a + b)*10);
+        return this;
+    }
+
+    // 新创建一个该类的实例
+    let per1 = new Person();
+    let per2 = new Person();
+    console.dir(per1,per2)// 查看详细信息
+    per1.__proto__===Person.prototype
+    Person.prototype.contructor===Person;
+    //原型上的contructor属性是想构造函数本身
+    console.log(per1.sum(1,2));
+    per1.sum(1,2).sum2(2,3);
+    per1.sum2(1,2).sum(2,3);
+    //链式写法的关键在于前边的返回值，要是该类的一个实例
+
+    class Student{
+        constructor(){
+            this.a = 12;
+            this.b = 13;
+            //这里放的都是 实例的私有属性
+        }
+        //公有属性
+        sum(a,b){
+            return a+b;
+        }
+        sum2(a,b){
+            return a+b*10;
+        }
+    }
+    //新创建一个student2类，这个类继承student
+    class Student2 extends Student{
+        constructor(){
+            super();//等同于this.a = 12;this.b=13;
+            this.b=200;
+            this.c=13;
+            //super();//super 必须在最上边
+        }
+    }
+    let stu1 = new Student();
+    console.log(stu1.sum(2,3));
+
+    let stu2=new Student2();
+    stu2.sum(2,2);
+    console.log(stu2.sum(2,2));
+    console.log(stu2.b);
+</script>

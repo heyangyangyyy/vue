@@ -1,3 +1,7 @@
+    // 倒计时 思路 
+    // 要知道目标时间 和当前时间
+    // 把两者的时间差 转成 时分秒
+    // 一秒转一次
 var timeBox=document.getElementById('timebox');
 function computed(){
     var nowTime=new Date(),

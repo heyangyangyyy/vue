@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // (function(a,b){return a+b})(2,3)//5 自执行函数
+    // ((a,b)=>{return a +b})(1,2,3,4,5)//3
+
+    // let arr = [34, 56, 345, 56, 23, 65];
+    // arr.sort(function (a, b) {
+    //     return a - b;
+    // })
+    // arr.sort((a, b) => { return a - b })
+    // arr.sort((a, b) => a - b)
+
+    //前端常见面试题
+    // var name = '珠峰';
+    // var age = 9;
+    // age = (function (name, age) {
+    //     name = '珠峰';
+    //     age = age || this.age;
+    //     this.age = arguments[0];
+    //     console.log(name, age);//珠峰 9
+    //     return this.age;
+    // })(name, age);
+    // console.log(name, age);//珠峰 珠峰
+
+    //call apply band
+    //fn.call(obj,1,2,3);
+    //fn.band(obj,1,2,3);
+    //fn.apply(obj,数组或类数组)
+
+    let obj2 = { name: 'zf' };
+    let fn = function (...ary) {
+        console.log(this, ary)
+    }
+    // fn.call(obj2, 1, 2, 3);
+    // fn.apply(obj2, [1, 2, 3]);
+    let fn2=fn.band(obj2,1,2,3);
+    fn2(4,5,6);
+</script>

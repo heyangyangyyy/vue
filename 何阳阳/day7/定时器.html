@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">停止</button>
+    <div class="box">距离下课还剩：<span id="timebox">00:00:00</span></div>
+</body>
+
+</html>
+<script>
+    /*
+    setTimeout(回调函数，等待时间)
+    经过等待时间之后 执行 回调函数
+    这个等待时间是以毫秒为单位的；
+    */
+    // let timer = setTimeout(() =>{
+    //     console.log(1111);
+    // },1000);
+    // clearTimeout(timer);//清除定时器
+    // //setInterval 与 setTimeout 的区别
+    // //setInterval 是不停的执行
+    // let timer2 = setInterval(()=>{
+    //     console.log(2222);
+    // },1000);
+    // btn.onclick=function(){
+    //     clearInterval(timer2);
+    // }
+
+    // setTimeout(()=>{
+    //     console.log(0);
+    // },1000)
+    // console.log(1);
+    //异步代码，只有在同步代码执行完毕后才执行异步代码
+
+
+    /*
+    Date
+    let now = new Date();//本机时间
+    now.getTime();//距离1970年1月1日00:00:00的毫秒数
+    */
+    // 倒计时 思路 
+    // 要知道目标时间 和当前时间
+    // 把两者的时间差 转成 时分秒
+    // 一秒转一次
+    var timeBox = document.getElementById('timebox');
+    //目标时间
+    var target = new Date('2018/10/27 17:30:00').getTime();
+    //下一步 获取当前时间差，并求出两者时间差
+    //这一步要一秒执行一次
+    let timer11 = setInterval(() => {
+        var now = new Date().getTime();
+        var time = target - now;
+        //到点之后清除定时器
+        if(time<=0){
+            clearInterval(timer11);
+            return;//打断函数执行
+        }
+        //先把time中的整数个小时摘出来
+        //再从剩余的时间中把整数个分钟摘出来
+        //再从剩余的时间中把整数个秒摘出来
+        //1小时等于3600*1000=3600000 毫秒
+        //这是time中包含的整数个小时
+        var hour = Math.floor(time / (1000 * 60 * 60));
+        time -= hour * 60 * 60 * 1000;
+        var minute = Math.floor(time / (1000 * 60));
+        time -= minute * 60 * 1000;
+        var second = Math.floor(time / 1000);
+        //三元运算符 条件?结果1:结果2
+        hour <10 ? hour='0'+hour : null;
+        minute <10 ? minute='0'+minute : null;
+        second <10 ? second='0'+second : null;
+
+        // timeBox.innerHTML = hour + ':' + minute + ':' + second;
+        timeBox.innerHTML = `${hour}:${minute}:${second}`;
+    }, 1000)
+
+   
+</script>
