@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{name}}
+        <h1 v-text='name'></h1>
+        <div v-html='str'></div>
+        <input type="text" v-model='name'>
+        <ul>
+            <li v-for='i in 5'>{{i}}</li>
+        </ul>
+        <div v-show='false'>v-show</div>
+        <div v-if='false'>v-if</div>
+        <!-- <span></span> -->
+        <div v-else>v-else</div>
+        <div>{{str}}</div>
+    </div>
+</body>
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            name:'何阳阳',
+            str:'<h2>123456</h2>'
+        }
+    })
+</script>
