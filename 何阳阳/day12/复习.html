@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bind 绑定行内属性 简写（:） -->
+        <div v-bind:class='current'></div>
+        <!-- v-on 绑定事件 简写（@） -->
+        <button @click='fn($event)'>点我</button>
+        <!-- 计算属性 computed
+                qqq 依赖于 this.name
+                前提是 qqq 在页面上有展示
+        -->
+        <input type="text" v-model='name'>
+        <h1>{{qqq}}</h1>
+        <!-- filters -->
+        <h2>{{qqq | upper}}</h2>
+        <qqq></qqq>
+    </div>
+</body>
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    /*全局组件
+    
+    */
+    Vue.component('qqq',{
+        template:"<h1>石家庄</h1>"
+    })
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            name:'hyy',
+            current:'qqq'
+        },
+        methods:{
+            fn(e){
+                // alert('123')
+                console.log(e)
+            }
+        },
+        computed:{
+            qqq(){
+                console.log(111)
+                return this.name+'cumputed'
+            }
+        },
+        filters:{
+            upper(a){
+                return a.toUpperCase()
+            }
+        }
+    })
+</script>
